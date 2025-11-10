@@ -55,3 +55,14 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+
+gem "mysql2"
+
+gem 'grape', '~> 2.4'
+
+gem 'bcrypt', '~> 3.1', '>= 3.1.12'
+
+gem 'jwt', '~> 1.5', '>= 1.5.4'
+
+gem 'openssl', '~> 3.3', '>= 3.3.2'
