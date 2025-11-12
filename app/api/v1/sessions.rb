@@ -26,9 +26,14 @@ module V1
 
         if user.save
           token = jwt_encode(user_id: user.id)
-          {token: token, user: user }
+
+          present({
+            token: token,
+            user: V1::Entities::User.represent(user)
+          })
+
         else
-          errors!(user.errors.full_messages, '422')
+          error!(user.errors.full_messages, 422)
         end
 
       end
@@ -44,7 +49,14 @@ module V1
         user = User.find_by(email: params[:email])
         if user && user.authenticate(params[:password])
           token = jwt_encode(user_id: user.id)
-          {token: token, user: user}
+
+          present({
+            token: token,
+            user: V1::Entities::User.represent(user)
+          })
+
+          # present user, with: V1::Entities::User
+          
         else
           error!('Invalid Credentials', 401)
         end

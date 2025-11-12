@@ -11,7 +11,6 @@ module V1
         Rails.logger.info("decoded_token : #{decoded_token.inspect}")
         @current_user ||= User.find_by(id: decoded_token[:user_id]) if decoded_token
         Rails.logger.info("user : #{@current_user}")
-          
       rescue 
         error!('Unauthorized Or Invalid Token', 401) 
       end

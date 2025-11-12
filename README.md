@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+# Grape entity
+- transaction block(db level)
+- broadcasting through actioncable
+- grape entity

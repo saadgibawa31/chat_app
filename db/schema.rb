@@ -10,22 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_10_31_112936) do
+ActiveRecord::Schema[7.2].define(version: 2025_11_10_062303) do
   create_table "chats", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
-    t.bigint "sender_id", null: false
-    t.bigint "receiver_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["receiver_id"], name: "index_chats_on_receiver_id"
-    t.index ["sender_id"], name: "index_chats_on_sender_id"
+    t.boolean "individual", null: false
   end
 
   create_table "messages", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "message"
-    t.bigint "chat_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["chat_id"], name: "index_messages_on_chat_id"
+    t.bigint "participant_id", null: false
+    t.index ["participant_id"], name: "index_messages_on_participant_id"
+  end
+
+  create_table "participants", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.bigint "chat_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chat_id"], name: "index_participants_on_chat_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
   end
 
   create_table "users", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
@@ -36,7 +42,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_10_31_112936) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "chats", "users", column: "receiver_id"
-  add_foreign_key "chats", "users", column: "sender_id"
-  add_foreign_key "messages", "chats"
+  add_foreign_key "participants", "chats"
+  add_foreign_key "participants", "users"
 end

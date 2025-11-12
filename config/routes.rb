@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  mount ActionCable.server => '/cable'
+
   mount V1::Base => '/'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

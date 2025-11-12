@@ -66,3 +66,7 @@ gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 gem 'jwt', '~> 1.5', '>= 1.5.4'
 
 gem 'openssl', '~> 3.3', '>= 3.3.2'
+
+gem 'actioncable', '~> 7.2', '>= 7.2.2.2'
+
+gem 'grape-entity', '~> 1.0', '>= 1.0.1'
