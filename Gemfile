@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
-gem "rails", "~> 7.2.2", ">= 7.2.2.2"
+gem "rails", "~> 8.1.1"
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 # Use sqlite3 as the database for Active Record
@@ -67,6 +67,6 @@ gem 'jwt', '~> 1.5', '>= 1.5.4'
 
 gem 'openssl', '~> 3.3', '>= 3.3.2'
 
-gem 'actioncable', '~> 7.2', '>= 7.2.2.2'
+gem 'actioncable', '~> 8.1'
 
 gem 'grape-entity', '~> 1.0', '>= 1.0.1'
