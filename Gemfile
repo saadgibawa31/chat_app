@@ -59,7 +59,7 @@ end
 
 gem "mysql2"
 
-gem 'grape', '~> 2.4'
+gem 'grape', '~> 3.0'
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
 
